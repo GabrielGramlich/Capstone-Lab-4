@@ -59,18 +59,7 @@ class PhoneAssignments():
 
 
 	def assign(self, phone_id, employee):
-		# Find phone in phones list
-		# TODO if phone is already assigned to an employee, do not change list, raise exception
-		# TODO if employee already has a phone, do not change list, and raise exception
-		# TODO if employee already has this phone, don't make any changes. This should NOT raise an exception.
-		assign = True
-		for phone in self.phones:
-			if phone.employee_id == employee.id:
-				assign = False
-			elif phone.id == phone_id or phone.employee_id == employee.id:
-				assign = False
-				raise PhoneError
-		if assign:
+		if phone_available(self.phones, phone_id, employee):
 			phone.assign(employee.id)
 
 
@@ -102,6 +91,22 @@ def id_does_not_exist(phone, phones):
 			no_id = False
 
 	return no_id
+
+
+def phone_available(phones, phone_id, employee):
+	# Find phone in phones list
+	# TODO if phone is already assigned to an employee, do not change list, raise exception
+	# TODO if employee already has a phone, do not change list, and raise exception
+	# TODO if employee already has this phone, don't make any changes. This should NOT raise an exception.
+	available = True
+	for phone in phones:
+		if phone.employee_id == employee.id:
+			available = False
+		elif phone.id == phone_id or phone.employee_id == employee.id:
+			available = False
+			raise PhoneError
+
+	return available
 
 
 class PhoneError(Exception):
