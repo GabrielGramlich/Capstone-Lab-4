@@ -158,6 +158,3 @@ class TestPhoneManager(unittest.TestCase):
 
 		with self.assertRaises(PhoneError):
 			phone3 = test_assignment_manager.phone_info(test_employee3)
-
-		# TODO check that the method returns None if the employee does not have a phone
-		# TODO check that the method raises an PhoneError if the employee does not exist
