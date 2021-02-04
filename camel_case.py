@@ -16,35 +16,30 @@ def display_banner():
 def get_sentence():
 	print()
 	sentence = input('Please input a sentence to convert to a camelCase variable. ')
-	while validate_characters(sentence):
+	clean_sentence = remove_special_characters(sentence)
+	while validate_characters(clean_sentence):
 		print('Are you kitten me right meow? You can\'t name a variable that! Try again.')
 		sentence = input('Please input a sentence to convert to camelCase. ')
+		clean_sentence = remove_special_characters(sentence)
+
+	return sentence
+
+
+def remove_special_characters(sentence, bad):
+	bad_characters = ['#', '/', ',', '\'', '\\', '.']
+	for character in bad_characters:
+		while character in sentence:
+			sentence = sentence.replace(character, '')
 
 	return sentence
 
 
 def validate_characters(sentence):
-	bad = check_first_character(sentence)
-	bad = check_special_characters(sentence, bad)
-
-	return bad
-
-
-def check_first_character(sentence):
 	try:
 		int(sentence[0:1])
 		return True
 	except:
 		return False
-
-
-def check_special_characters(sentence, bad):
-	bad_characters = ['#', '/', ',', '\'', '\\', '.']
-	for character in bad_characters:
-		if sentence.find(character) != -1:
-			bad = True
-
-	return bad
 
 
 def convert_sentence(sentence):
