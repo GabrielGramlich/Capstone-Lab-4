@@ -19,27 +19,13 @@ class TestCamelCase(TestCase):
 		self.assertFalse(result)
 
 
-	def test_string_cannot_contain_special_characters(self):
-		bad_string1 = 'this sen#tence is invalid'
-		bad_string2 = 'this sentence is/ invalid'
-		bad_string3 = 'this, sentence is invalid'
-		bad_string4 = 'this sentence is inv\'alid'
-		bad_string5 = 'this sentence \\is invalid'
-		bad_string6 = 'this.sentence is invalid'
+	def test_remove_special_characters(self):
+		bad_string = '/this, sen#ten\'ce is .valid\\'
+		good_string = 'this sentence is valid'
 
-		result1 = camel_case.check_special_characters(bad_string1, False)
-		result2 = camel_case.check_special_characters(bad_string2, False)
-		result3 = camel_case.check_special_characters(bad_string3, False)
-		result4 = camel_case.check_special_characters(bad_string4, False)
-		result5 = camel_case.check_special_characters(bad_string5, False)
-		result6 = camel_case.check_special_characters(bad_string6, False)
+		result = camel_case.remove_special_characters(bad_string, False)
 
-		self.assertTrue(result1)
-		self.assertTrue(result2)
-		self.assertTrue(result3)
-		self.assertTrue(result4)
-		self.assertTrue(result5)
-		self.assertTrue(result6)
+		self.assertEqual(result, good_string)
 
 
 	def test_convert_strings_with_different_cases(self):
