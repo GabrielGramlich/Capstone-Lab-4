@@ -117,9 +117,22 @@ class TestPhoneManager(unittest.TestCase):
 
 
 	def test_un_assign_phone(self):
-		# TODO write this test and remove the self.fail() statement
-		# Assign a phone, unasign the phone, verify the employee_id is None
-		self.fail()
+		test_phone = Phone(1, 'Apple', 'iPhone 420')
+		test_employee = Employee(1,'Snoop Dogg')
+
+		test_assignment_manager = PhoneAssignments()
+		test_assignment_manager.add_phone(test_phone)
+		test_assignment_manager.add_employee(test_employee)
+
+		test_assignment_manager.assign(1,test_employee)
+		member_assigned = test_phone.employee_id
+
+		self.assertIsNotNone(member_assigned)
+
+		test_assignment_manager.un_assign(1)
+		member_assigned = test_phone.employee_id
+
+		self.assertIsNone(member_assigned)
 
 
 	def test_get_phone_info_for_employee(self):
