@@ -42,7 +42,7 @@ def invalid_sentence(sentence):
 	invalid_character = validate_first_character(sentence)
 	invalid_length = is_blank(sentence)
 
-	return invalid_character || invalid_length
+	return invalid_character or invalid_length
 
 
 def validate_first_character(sentence):
