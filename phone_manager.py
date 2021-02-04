@@ -50,7 +50,6 @@ class PhoneAssignments():
 
 
 	def add_phone(self, phone):
-		# TODO raise exception if two phones with same ID are added
 		if id_does_not_exist(phone, self.phones):
 			self.phones.append(phone)
 		else:

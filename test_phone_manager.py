@@ -20,8 +20,6 @@ class TestPhoneManager(unittest.TestCase):
 
 
 	def test_create_and_add_phone_with_duplicate_id(self):
-		# TODO add a phone, add another phone with the same id, and verify an PhoneError exception is thrown
-		# TODO you'll need to modify PhoneAssignments.add_phone() to make this test pass
 		testPhone1 = Phone(1, 'Apple', 'iPhone 6')
 		testPhone2 = Phone(1, 'Apple', 'iPhone 5')
 
