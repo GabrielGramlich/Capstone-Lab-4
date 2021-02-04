@@ -15,14 +15,19 @@ def display_banner():
 
 def get_sentence():
 	print()
-	sentence = input('Please input a sentence to convert to a camelCase variable. ')
-	clean_sentence = remove_special_characters(sentence)
+	sentence = get_clean_sentence()
 	while validate_first_character(clean_sentence):
 		print('Are you kitten me right meow? You can\'t name a variable that! Try again.')
-		sentence = input('Please input a sentence to convert to camelCase. ')
-		clean_sentence = remove_special_characters(sentence)
+		sentence = get_clean_sentence()
 
 	return sentence
+
+
+def get_clean_sentence():
+	sentence = input('Please input a sentence to convert to a camelCase variable. ')
+	clean_sentence = remove_special_characters(sentence)
+
+	return clean_sentence
 
 
 def remove_special_characters(sentence, bad):
