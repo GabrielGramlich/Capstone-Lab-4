@@ -49,7 +49,8 @@ def validate_first_character(sentence):
 	try:
 		int(sentence[0:1])
 		return True
-	return False
+	except ValueError:
+		return False
 
 
 def is_blank(sentence):
