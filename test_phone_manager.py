@@ -103,10 +103,17 @@ class TestPhoneManager(unittest.TestCase):
 
 
 	def test_assign_phone_to_the_employee_who_already_has_this_phone(self):
-		# TODO The method should not make any changes but NOT raise a PhoneError if a phone
-		# is assigned to the same user it is currenly assigned to.
+		test_phone = Phone(1, 'Apple', 'iPhone 420')
+		test_employee = Employee(1,'Snoop Dogg')
 
-		self.fail()
+		test_assignment_manager = PhoneAssignments()
+		test_assignment_manager.add_phone(test_phone)
+		test_assignment_manager.add_employee(test_employee)
+
+		test_assignment_manager.assign(1,test_employee)
+		self.assertEqual(test_employee.id,test_phone.employee_id)
+		test_assignment_manager.assign(1,test_employee)
+		self.assertEqual(test_employee.id,test_phone.employee_id)
 
 
 	def test_un_assign_phone(self):
