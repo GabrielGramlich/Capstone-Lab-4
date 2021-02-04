@@ -58,8 +58,6 @@ class TestPhoneManager(unittest.TestCase):
 
 
 	def test_assign_phone_to_employee(self):
-		# TODO write this test and remove the self.fail() statement
-		# TODO you'll need to fix the assign method in PhoneAssignments
 		test_phone = Phone(1, 'Apple', 'iPhone 420')
 		test_employee = Employee(1,'Snoop Dogg')
 
