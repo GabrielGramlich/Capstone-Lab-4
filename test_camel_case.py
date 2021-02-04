@@ -12,9 +12,9 @@ class TestCamelCase(TestCase):
 
 
 	def test_first_character_can_be_string(self):
-		bad_string = 'this is a sentence'
+		good_string = 'this is a sentence'
 
-		result = camel_case.invalid_sentence(bad_string)
+		result = camel_case.invalid_sentence(good_string)
 
 		self.assertFalse(result)
 
