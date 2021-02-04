@@ -160,3 +160,8 @@ class TestStudentLists(TestCase):
 			test_class = ClassList(0)
 
 
+	def test_class_size_is_negative_raises_studenterror(self):
+		with self.assertRaises(StudentError):
+			test_class = ClassList(-6)
+
+
