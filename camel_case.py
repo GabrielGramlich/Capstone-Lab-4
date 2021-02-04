@@ -16,8 +16,7 @@ def display_banner():
 def get_sentence():
 	print()
 	sentence = get_clean_sentence()
-	while validate_first_character(clean_sentence):
-		print('Are you kitten me right meow? You can\'t name a variable that! Try again.')
+	while invalid_sentence(sentence):
 		sentence = get_clean_sentence()
 
 	return sentence
@@ -39,12 +38,24 @@ def remove_special_characters(sentence, bad):
 	return sentence
 
 
+def invalid_sentence(sentence):
+	invalid_character = validate_first_character(sentence)
+	invalid_length = is_blank(sentence)
+
+	return invalid_character || invalid_length
+
+
 def validate_first_character(sentence):
 	try:
 		int(sentence[0:1])
 		return True
-	except:
+	return False
+
+
+def is_blank(sentence):
+	if len(sentence) > 0:
 		return False
+	return True
 
 
 def convert_sentence(sentence):
