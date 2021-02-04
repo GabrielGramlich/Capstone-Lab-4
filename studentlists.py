@@ -53,7 +53,7 @@ class ClassList:
 
 
 	def is_class_full(self):
-		return len(class_list) == max_students
+		return len(self.class_list) == self.max_students
 
 
 	def __str__(self):
