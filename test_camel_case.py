@@ -50,3 +50,12 @@ class TestCamelCase(TestCase):
 
 		self.assertEqual(result, good_string)
 
+
+	def test_convert_strings_with_different_cases_first_character_numeric(self):
+		good_string = '1gloo'
+		bad_string = '1gLoO'
+
+		result = camel_case.convert_word_to_title_case(bad_string)
+
+		self.assertEqual(result, good_string)
+
