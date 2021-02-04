@@ -59,7 +59,8 @@ class PhoneAssignments():
 
 
 	def assign(self, phone_id, employee):
-		if phone_available(self.phones, phone_id, employee):
+		can_assign_phone, phone = can_assign(self.phones, phone_id, employee)
+		if can_assign_phone:
 			phone.assign(employee.id)
 
 
@@ -93,16 +94,39 @@ def id_does_not_exist(phone, phones):
 	return no_id
 
 
-def phone_available(phones, phone_id, employee):
-	available = True
+def can_assign(phones, phone_id, employee):
+	phone = find_phone(phones, phone_id)
+	available = phone_available(phone, employee)
+	has_no_phone = employee_has_phone(phones, employee)
+
+	return available and has_no_phone, phone
+
+
+def find_phone(phones, phone_id):
 	for phone in phones:
-		if phone.employee_id == employee.id:
-			available = False
-		elif phone.id == phone_id or phone.employee_id == employee.id:
-			available = False
-			raise PhoneError
+		if phone.id == phone_id:
+			return phone
+
+
+def phone_available(phone, employee):
+	available = True
+	if phone.employee_id == employee.id:
+		available = False
+	elif phone.is_assigned():
+		available = False
+		raise PhoneError
 
 	return available
+
+
+def employee_has_phone(phones, employee):
+	has_no_phone = True
+	for phone in phones:
+		if phone.employee_id == employee.id:
+			has_no_phone = False
+			raise PhoneError
+
+	return has_no_phone
 
 
 class PhoneError(Exception):
