@@ -51,12 +51,7 @@ class PhoneAssignments():
 
 	def add_phone(self, phone):
 		# TODO raise exception if two phones with same ID are added
-		id_does_not_exist = True
-		for p in self.phones:
-			if phone.id == p.id:
-				id_does_not_exist = False
-
-		if id_does_not_exist:
+		if id_does_not_exist(phone, self.phones):
 			self.phones.append(phone)
 		else:
 			raise PhoneError
@@ -92,6 +87,16 @@ class PhoneAssignments():
 
 
 		return None
+
+
+def id_does_not_exist(phone, phones):
+	no_id = True
+	for p in phones:
+		if phone.id == p.id:
+			no_id = False
+
+	return no_id
+
 
 
 class PhoneError(Exception):
