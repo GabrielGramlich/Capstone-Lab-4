@@ -1,13 +1,11 @@
 import camel_case
 from unittest import TestCase
 
-class TestStudentLists(TestCase):
+class TestCamelCase(TestCase):
 
-    def test_add_student_check_student_in_list(self):
-        test_class = ClassList(2)
-        test_class.add_student('Test Student')
-        self.assertIn('Test Student', test_class.class_list)
+	def test_first_character_cannot_be_number(self):
+		bad_string = '4this is a sentence'
 
-        test_class.add_student('Another Test Student')
-        self.assertIn('Test Student', test_class.class_list)
-        self.assertIn('Another Test Student', test_class.class_list)
+		result = camel_case.check_first_character
+
+		self.assertTrue(result)

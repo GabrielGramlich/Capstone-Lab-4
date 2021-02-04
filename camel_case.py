@@ -77,4 +77,5 @@ def print_converted_sentence(sentence):
 	print()
 
 
-main()
+if __name__ == '__main__':
+	main()
