@@ -19,6 +19,14 @@ class TestCamelCase(TestCase):
 		self.assertFalse(result)
 
 
+	def test_not_blank(self):
+		bad_string = ''
+
+		result = camel_case.invalid_sentence(bad_string)
+
+		self.assertTrue(result)
+
+
 	def test_remove_special_characters(self):
 		bad_string = '/this, sen#ten\'ce is .valid\\'
 		good_string = 'this sentence is valid'
