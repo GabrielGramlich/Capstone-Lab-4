@@ -136,11 +136,28 @@ class TestPhoneManager(unittest.TestCase):
 
 
 	def test_get_phone_info_for_employee(self):
-		# TODO write this test and remove the self.fail() statement
-		# Create some phones, and employees, assign a phone,
-		# call phone_info and verify correct phone info is returned
+		test_employee1 = Employee(1,'Probability the Rap Artist')
+		test_employee2 = Employee(2,'Immature Lucchese')
+		test_employee3 = Employee(3,'Kendrick Notsocool')
+		test_phone1 = Phone(1, 'Orange', 'aPhone 3')
+		test_phone2 = Phone(2, 'Orange', 'ePhone 40')
+		test_phone3 = Phone(3, 'Orange', 'iPhone -8')
+
+		test_assignment_manager = PhoneAssignments()
+		test_assignment_manager.add_employee(test_employee1)
+		test_assignment_manager.add_employee(test_employee2)
+		test_assignment_manager.add_phone(test_phone2)
+		test_assignment_manager.add_phone(test_phone3)
+		test_assignment_manager.assign(2,test_employee2)
+
+		phone1 = test_assignment_manager.phone_info(test_employee1)
+		phone2 = test_assignment_manager.phone_info(test_employee2)
+
+		self.assertIsNone(phone1)
+		self.assertEqual(phone2,test_phone2)
+
+		with self.assertRaises(PhoneError):
+			phone3 = test_assignment_manager.phone_info(test_employee3)
 
 		# TODO check that the method returns None if the employee does not have a phone
 		# TODO check that the method raises an PhoneError if the employee does not exist
-
-		self.fail()
