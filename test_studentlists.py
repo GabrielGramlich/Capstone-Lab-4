@@ -121,8 +121,6 @@ class TestStudentLists(TestCase):
 	# assert that searching for a student name that is not in the list, returns None.
 
 
-	## TODO write a test for your new is_class_full method when the class is full. 
-	# use assertTrue.
 	def test_class_full_returns_true(self):
 		test_class = ClassList(3)
 		test_class.add_student('Harry')
