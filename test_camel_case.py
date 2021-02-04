@@ -57,3 +57,12 @@ class TestCamelCase(TestCase):
 		self.assertEqual(result1, camel_case_string)
 		self.assertEqual(result2, camel_case_string)
 
+
+	def test_normal_sentence_converts_to_camel_case_with_numbers(self):
+		camel_case_string = 'c4nY0uR34d13377h0'
+		bad_string = 'C4n y0u r34d 1337 7h0'
+
+		result = camel_case.convert_sentence(bad_string)
+
+		self.assertEqual(result, camel_case_string)
+
