@@ -155,3 +155,8 @@ class TestStudentLists(TestCase):
 		self.assertFalse(result)
 
 
+	def test_class_size_is_zero_raises_studenterror(self):
+		with self.assertRaises(StudentError):
+			test_class = ClassList(0)
+
+
