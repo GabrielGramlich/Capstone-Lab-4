@@ -107,9 +107,6 @@ class TestStudentLists(TestCase):
 
 
 	def test_index_of_student_in_empty_list_returns_none(self):
-	## TODO write a test for index_of_student when the class_list list is empty.  
-	# Assert index_of_student returns None for a student if the list is empty. 
-	# use assertIsNone.
 		test_class = ClassList(5)
 
 		index_of_missing_student = test_class.index_of_student('Clement Attlee')
@@ -117,9 +114,15 @@ class TestStudentLists(TestCase):
 		self.assertIsNone(index_of_missing_student)
 
 
-	## TODO write another test for index_of_student. In the case when the 
-	# class_list is not empty but has some students.
-	# assert that searching for a student name that is not in the list, returns None.
+	def test_index_of_student_in_empty_list_returns_none_when_list_not_empty(self):
+		test_class = ClassList(5)
+		test_class.add_student('Tony Micelli')
+		test_class.add_student('Angela Bower')
+		test_class.add_student('Samantha Micelli')
+
+		index_of_missing_student = test_class.index_of_student('Mona Robinson')
+
+		self.assertIsNone(index_of_missing_student)
 
 
 	def test_class_full_returns_true(self):
