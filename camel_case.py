@@ -17,7 +17,7 @@ def get_sentence():
 	print()
 	sentence = input('Please input a sentence to convert to a camelCase variable. ')
 	clean_sentence = remove_special_characters(sentence)
-	while validate_characters(clean_sentence):
+	while validate_first_character(clean_sentence):
 		print('Are you kitten me right meow? You can\'t name a variable that! Try again.')
 		sentence = input('Please input a sentence to convert to camelCase. ')
 		clean_sentence = remove_special_characters(sentence)
@@ -34,7 +34,7 @@ def remove_special_characters(sentence, bad):
 	return sentence
 
 
-def validate_characters(sentence):
+def validate_first_character(sentence):
 	try:
 		int(sentence[0:1])
 		return True
