@@ -123,7 +123,7 @@ class TestStudentLists(TestCase):
 
 	## TODO write a test for your new is_class_full method when the class is full. 
 	# use assertTrue.
-	def test_index_of_student_student_present(self):
+	def test_class_full_returns_true(self):
 		test_class = ClassList(3)
 		test_class.add_student('Harry')
 		test_class.add_student('Hermione')
