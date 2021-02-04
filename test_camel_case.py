@@ -41,3 +41,12 @@ class TestCamelCase(TestCase):
 		self.assertTrue(result5)
 		self.assertTrue(result6)
 
+
+	def test_convert_strings_with_different_cases(self):
+		good_string = 'Word'
+		bad_string = 'wOrD'
+
+		result = camel_case.convert_word_to_title_case(bad_string)
+
+		self.assertEqual(result, good_string)
+
