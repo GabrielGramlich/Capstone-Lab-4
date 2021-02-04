@@ -6,7 +6,7 @@ class TestCamelCase(TestCase):
 	def test_first_character_cannot_be_number(self):
 		bad_string = '4this is a sentence'
 
-		result = camel_case.validate_first_character(bad_string)
+		result = camel_case.invalid_sentence(bad_string)
 
 		self.assertTrue(result)
 
@@ -14,7 +14,7 @@ class TestCamelCase(TestCase):
 	def test_first_character_can_be_string(self):
 		bad_string = 'this is a sentence'
 
-		result = camel_case.validate_first_character(bad_string)
+		result = camel_case.invalid_sentence(bad_string)
 
 		self.assertFalse(result)
 
