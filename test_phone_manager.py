@@ -31,8 +31,6 @@ class TestPhoneManager(unittest.TestCase):
 
 
 	def test_create_and_add_new_employee(self):
-		# TODO write this test and then remove the self.fail() statement
-		# Add some employees and verify they are present in the PhoneAssignments.employees list
 		test_employee1 = Employee(1,'Human')
 		test_employee2 = Employee(2,'Very Real Human')
 		test_employee3 = Employee(3,'Zagnork, Conqueror of Worlds')
