@@ -94,10 +94,6 @@ def id_does_not_exist(phone, phones):
 
 
 def phone_available(phones, phone_id, employee):
-	# Find phone in phones list
-	# TODO if phone is already assigned to an employee, do not change list, raise exception
-	# TODO if employee already has a phone, do not change list, and raise exception
-	# TODO if employee already has this phone, don't make any changes. This should NOT raise an exception.
 	available = True
 	for phone in phones:
 		if phone.employee_id == employee.id:
