@@ -30,8 +30,6 @@ class TestStudentLists(TestCase):
 			test_class.add_student('Test Student')
 
 
-	## TODO write a test that adds and removes a student, 
-	# and asserts the student is removed. Use assertNotIn
 	def test_add_remove_student_ensure_removed(self):
 		test_class = ClassList(2)
 		test_class.add_student('Test Student')
@@ -40,8 +38,6 @@ class TestStudentLists(TestCase):
 		self.assertNotIn('Test Student', test_class.class_list)
 
 
-	## TODO write a test that adds some example students, 
-	# then removes a student not in the list, and asserts a StudentError is raised
 	def test_remove_student_who_is_not_in_the_list_raises_student_error(self):
 		test_class = ClassList(5)
 		test_class.add_student('Punky Brewster')
@@ -70,9 +66,6 @@ class TestStudentLists(TestCase):
 		self.assertFalse(test_class.is_enrolled('Snoop Dogg'))
 
 
-	## TODO write a test that adds some example students to a test class,
-	## then, call is_enrolled for a student who is not enrolled. 
-	# Use assertFalse to verify is_enrolled returns False.
 	def test_student_not_in_class_is_not_enrolled(self):
 		test_class = ClassList(4)
 		test_class.add_student('Alice')
