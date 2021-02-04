@@ -97,7 +97,7 @@ def id_does_not_exist(phone, phones):
 def can_assign(phones, phone_id, employee):
 	phone = find_phone(phones, phone_id)
 	available = phone_available(phone, employee)
-	has_no_phone = employee_has_phone(phones, employee)
+	has_no_phone = employee_has_phone(phones, phone_id, employee)
 
 	return available and has_no_phone, phone
 
@@ -119,10 +119,10 @@ def phone_available(phone, employee):
 	return available
 
 
-def employee_has_phone(phones, employee):
+def employee_has_phone(phones, phone_id, employee):
 	has_no_phone = True
 	for phone in phones:
-		if phone.employee_id == employee.id:
+		if phone.employee_id == employee.id and phone.id != phone_id:
 			has_no_phone = False
 			raise PhoneError
 
